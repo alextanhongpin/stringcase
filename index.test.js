@@ -54,10 +54,10 @@ describe("StringCase", () => {
       "HELLOWORLD",
       UpperCase,
       {
-        camel: "HELLOWORLD",
-        pascal: "HELLOWORLD",
-        snake: "HELLOWORLD",
-        kebab: "HELLOWORLD"
+        camel: "helloworld",
+        pascal: "Helloworld",
+        snake: "helloworld",
+        kebab: "helloworld"
       }
     ],
     [
@@ -65,7 +65,7 @@ describe("StringCase", () => {
       LowerCase,
       {
         camel: "helloworld",
-        pascal: "helloworld",
+        pascal: "Helloworld",
         snake: "helloworld",
         kebab: "helloworld"
       }
@@ -74,8 +74,8 @@ describe("StringCase", () => {
       "CREATED AT.",
       CamelCase,
       {
-        camel: "createdAT",
-        pascal: "CreatedAT",
+        camel: "createdAt",
+        pascal: "CreatedAt",
         snake: "created_at",
         kebab: "created-at"
       }
@@ -84,8 +84,8 @@ describe("StringCase", () => {
       "User. ID",
       PascalCase,
       {
-        camel: "userID",
-        pascal: "UserID",
+        camel: "userId",
+        pascal: "UserId",
         snake: "user_id",
         kebab: "user-id"
       }
@@ -114,8 +114,8 @@ describe("StringCase", () => {
       "User. AB100",
       PascalCase,
       {
-        camel: "userAB100",
-        pascal: "UserAB100",
+        camel: "userAb100",
+        pascal: "UserAb100",
         snake: "user_ab100",
         kebab: "user-ab100"
       }
@@ -124,8 +124,8 @@ describe("StringCase", () => {
       "john. DOE",
       CamelCase,
       {
-        camel: "johnDOE",
-        pascal: "JohnDOE",
+        camel: "johnDoe",
+        pascal: "JohnDoe",
         snake: "john_doe",
         kebab: "john-doe"
       }

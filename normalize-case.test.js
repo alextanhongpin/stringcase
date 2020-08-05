@@ -4,9 +4,9 @@ describe("normalizeCase", () => {
   test.each([
     ["hello world", "hello-world"], // Word separated by space.
     ["hello_world", "hello-world"], // Snake case.
-    ["helloWorld", "helloWorld"], // Camel case.
-    ["HelloWorld", "HelloWorld"], // Pascal case.
-    ["HELLOWORLD", "HELLOWORLD"], // Upper case.
+    ["helloWorld", "hello-world"], // Camel case.
+    ["HelloWorld", "hello-world"], // Pascal case.
+    ["HELLOWORLD", "helloworld"], // Upper case.
     ["helloworld", "helloworld"], // Lower case.
     ["!@#$%^", ""] // Random.
   ])(".normalizeCase(%s) returns %s", (str, expected) => {
@@ -18,9 +18,9 @@ describe("normalizeCase with underscore", () => {
   test.each([
     ["hello world", "hello_world"], // Word separated by space.
     ["hello_world", "hello_world"], // Snake case.
-    ["helloWorld", "helloWorld"], // Camel case.
-    ["HelloWorld", "HelloWorld"], // Pascal case.
-    ["HELLOWORLD", "HELLOWORLD"], // Upper case.
+    ["helloWorld", "hello_world"], // Camel case.
+    ["HelloWorld", "hello_world"], // Pascal case.
+    ["HELLOWORLD", "helloworld"], // Upper case.
     ["helloworld", "helloworld"], // Lower case.
     ["!@#$%^", ""] // Random.
   ])(".normalizeCase(%s) returns %s", (str, expected) => {

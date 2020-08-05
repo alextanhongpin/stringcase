@@ -4,20 +4,24 @@ const upper = require("./upper");
 const lower = require("./lower");
 
 class StringCase {
+  #norm = "";
   constructor(value) {
     this.value = value;
+    this.#norm = normalizeCase(value, "_");
   }
   get camel() {
-    return this.value;
+    return this.#norm.replace(/_[a-z0-9]/g, match =>
+      match.charAt(1).toUpperCase()
+    );
   }
   get snake() {
-    return this.value;
+    return this.#norm;
   }
   get kebab() {
-    return this.value;
+    return this.#norm.replace(/_/g, "-");
   }
   get pascal() {
-    return this.value;
+    return upper(this.camel);
   }
   valueOf() {
     return this.value;
@@ -44,95 +48,11 @@ function stringCase(str) {
   }
 }
 
-class SnakeCase extends StringCase {
-  get snake() {
-    return normalizeCase(this.value.toLowerCase(), "_");
-  }
-  get camel() {
-    const result = this.snake.replace(/_[a-z0-9]/gi, str =>
-      str.charAt(1).toUpperCase()
-    );
-    return lower(result);
-  }
-  get pascal() {
-    return upper(this.camel);
-  }
-  get kebab() {
-    return this.snake.replace(/_/g, "-");
-  }
-}
-
-class CamelCase extends StringCase {
-  get camel() {
-    const normalized = normalizeCase(this.value);
-    const breakWord = normalized.includes("-")
-      ? normalized
-          .split("-")
-          .map((str, i) => (i === 0 ? str.toLowerCase() : upper(str)))
-          .join("-")
-      : normalized;
-    const result = breakWord.replace(/-[a-z0-9]/gi, match =>
-      match.charAt(1).toUpperCase()
-    );
-    return lower(result);
-  }
-  get pascal() {
-    return upper(this.camel);
-  }
-  get kebab() {
-    const result = this.camel.replace(/[a-z][A-Z]/g, word =>
-      word.split("").join("-")
-    );
-    return result.toLowerCase();
-  }
-  get snake() {
-    return this.kebab.replace(/-/g, "_").toLowerCase();
-  }
-}
-
-class PascalCase extends StringCase {
-  get pascal() {
-    const normalized = normalizeCase(this.value);
-    const result = normalized.replace(/-[a-z0-9]/gi, match =>
-      match.charAt(1).toUpperCase()
-    );
-    return upper(result);
-  }
-
-  get camel() {
-    return lower(this.pascal);
-  }
-
-  get kebab() {
-    return this.pascal
-      .replace(/[a-z][A-Z0-9]/g, char => char.split("").join("-"))
-      .toLowerCase();
-  }
-  get snake() {
-    return this.kebab.replace(/-/g, "_");
-  }
-}
-
-class KebabCase extends StringCase {
-  get kebab() {
-    return normalizeCase(this.value.toLowerCase());
-  }
-  get snake() {
-    return this.kebab.replace(/-/g, "_");
-  }
-  get camel() {
-    const result = this.kebab.replace(/-[a-z0-9]/gi, word =>
-      word.charAt(1).toUpperCase()
-    );
-    return lower(result);
-  }
-  get pascal() {
-    return upper(this.camel);
-  }
-}
-
+class SnakeCase extends StringCase {}
+class CamelCase extends StringCase {}
+class PascalCase extends StringCase {}
+class KebabCase extends StringCase {}
 class UpperCase extends StringCase {}
-
 class LowerCase extends StringCase {}
 
 module.exports = {
