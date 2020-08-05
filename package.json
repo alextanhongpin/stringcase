@@ -1,6 +1,6 @@
 {
   "name": "@alextanhongpin/stringcase",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Detects and converts stringcases like camelCase, kebab-case, PascalCase and snake_case",
   "main": "index.js",
   "scripts": {
