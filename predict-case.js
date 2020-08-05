@@ -10,10 +10,9 @@ function predictCase(str) {
   const scores = caseScores.map(item => item.score);
   // When the scores are the same, it means all
   // the cases have score of 0. To simplify
-  // things, we just use the camel case.
+  // things, we just use the unknown case.
   const [min, max] = [Math.min(...scores), Math.max(...scores)];
-  // Why camel, and not snake? Camel preserve capitalization in the text, such as john. DOE, but snake assumes everything is lowercase.
-  if (min === max) return "camel";
+  if (min === max) return "unknown";
   const item = caseScores.find(item => item.score === max);
   return item.caseType || "unknown";
 }

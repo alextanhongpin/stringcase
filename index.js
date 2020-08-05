@@ -43,6 +43,8 @@ function stringCase(str) {
       return new UpperCase(str);
     case "lower":
       return new LowerCase(str);
+    case "unknown":
+      return new UnknownCase(str);
     default:
       throw new Error(`StringCaseError: case "${caseType}" is invalid`);
   }
@@ -54,6 +56,7 @@ class PascalCase extends StringCase {}
 class KebabCase extends StringCase {}
 class UpperCase extends StringCase {}
 class LowerCase extends StringCase {}
+class UnknownCase extends StringCase {}
 
 module.exports = {
   StringCase,
@@ -63,5 +66,6 @@ module.exports = {
   PascalCase,
   KebabCase,
   SnakeCase,
-  CamelCase
+  CamelCase,
+  UnknownCase
 };

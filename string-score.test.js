@@ -8,15 +8,15 @@ describe("stringScore(str).lower", () => {
     ["-", 0], // Single symbol.
     ["hello", 5], // All lower.
     ["world", 5], // All lower.
-    ["Hello", 0], // Has uppercase in the beginning.
-    ["hEllo", 0], // Has uppercase in between.
-    ["hellO", 0], // Has uppercase in the end.
-    ["hell-o", 0], // Has hyphen in between.
-    ["-hello", 0], // Has hyphen in the beginning.
-    ["hello-", 0], // Has hyphen in the end.
-    ["hell_o", 0], // Has underscore in between.
-    ["_hello", 0], // Has underscore in the beginning.
-    ["hello_", 0], // Has underscore in the end.
+    ["Hello", 4], // Has uppercase in the beginning.
+    ["hEllo", 4], // Has uppercase in between.
+    ["hellO", 4], // Has uppercase in the end.
+    ["hell-o", 5], // Has hyphen in between.
+    ["-hello", 5], // Has hyphen in the beginning.
+    ["hello-", 5], // Has hyphen in the end.
+    ["hell_o", 5], // Has underscore in between.
+    ["_hello", 5], // Has underscore in the beginning.
+    ["hello_", 5], // Has underscore in the end.
     ["HELL_O", 0], // Has underscore in between.
     ["_HELLO", 0], // Has underscore in the beginning.
     ["HELLO_", 0] // Has underscore in the end.
@@ -33,22 +33,22 @@ describe("stringScore(str).upper", () => {
     ["-", 0], // Single symbol.
     ["hello", 0], // All lower.
     ["world", 0], // All lower.
-    ["Hello", 0], // Has uppercase in the beginning.
-    ["hEllo", 0], // Has uppercase in between.
-    ["hellO", 0], // Has uppercase in the end.
+    ["Hello", 1], // Has uppercase in the beginning.
+    ["hEllo", 1], // Has uppercase in between.
+    ["hellO", 1], // Has uppercase in the end.
     ["hell-o", 0], // Has hyphen in between.
     ["-hello", 0], // Has hyphen in the beginning.
     ["hello-", 0], // Has hyphen in the end.
     ["HELLO", 5], // All upper.
-    ["HELL-O", 0], // Has hyphen in between.
-    ["-HELLO", 0], // Has hyphen in the beginning.
-    ["HELLO-", 0], // Has hyphen in the end.
+    ["HELL-O", 5], // Has hyphen in between.
+    ["-HELLO", 5], // Has hyphen in the beginning.
+    ["HELLO-", 5], // Has hyphen in the end.
     ["hell_o", 0], // Has underscore in between.
     ["_hello", 0], // Has underscore in the beginning.
     ["hello_", 0], // Has underscore in the end.
-    ["HELL_O", 0], // Has underscore in between.
-    ["_HELLO", 0], // Has underscore in the beginning.
-    ["HELLO_", 0] // Has underscore in the end.
+    ["HELL_O", 5], // Has underscore in between.
+    ["_HELLO", 5], // Has underscore in the beginning.
+    ["HELLO_", 5] // Has underscore in the end.
   ])("stringScore(%s).upper returns %i", (str, expected) => {
     expect(stringScore(str).upper).toEqual(expected);
   });

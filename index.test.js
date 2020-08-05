@@ -132,7 +132,7 @@ describe("StringCase", () => {
     ],
     [
       "the Amazing Spider-Man",
-      KebabCase,
+      CamelCase,
       {
         camel: "theAmazingSpiderMan",
         pascal: "TheAmazingSpiderMan",

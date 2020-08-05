@@ -1,6 +1,6 @@
 function stringScore(str = "") {
-  const [lower] = str.match(/^[a-z]+$/) || [""];
-  const [upper] = str.match(/^[A-Z]+$/) || [""];
+  const lower = str.match(/[a-z]/g) || [];
+  const upper = str.match(/[A-Z]/g) || [];
   const pascal = str.match(/^[A-Z][a-z]/) || [];
   const camel = str.match(/[a-z][A-Z]/g) || [];
   const kebab = str.match(/-/g) || [];
